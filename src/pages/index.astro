@@ -14,7 +14,7 @@ data = Object.keys(data).map((key) => data[key]);
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="CSS! CSS! CSS! CSS! CSS!" />
-    
+
     <title>CSS Day</title>
 
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -47,12 +47,14 @@ data = Object.keys(data).map((key) => data[key]);
     /* @see https://coolors.co/palette/eee7d7-e6c9c6-4e705d-58554c-a97c41-e8ada5 */
     :root {
       --c-background: #eee7d7;
+      --c-text: #1a1c1a;
     }
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
       --c-background: #1a1c1a;
+      --c-text: #eee7d7;
     }
   }
 
@@ -62,10 +64,9 @@ data = Object.keys(data).map((key) => data[key]);
 
   body {
     background-color: var(--c-background);
+    color: var(--c-text);
     font-family: system-ui, sans-serif;
     line-height: 1.5;
-    margin: 0;
-    padding: 0;
 
     display: grid;
     grid-template-columns: [full-start] 1fr [main-start] minmax(0px, 1200px) [main-end] 1fr [full-end];
