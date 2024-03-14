@@ -1,24 +1,30 @@
 ---
-const response = await fetch('https://cssday.nl/data');
+import { Speakers, Talks } from "@components";
+
+const response = await fetch("https://cssday.nl/data");
 let data = await response.json();
-data = Object.keys(data).map(key => ({ year: key, ...data[key] }));
+data = Object.keys(data).map((key) => data[key]);
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>CSS Day</h1>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1>CSS Day</h1>
 
-		{ data.map((row) => 
-			<h2>{ row.year }</h2>
-		)}
-
-		<!-- <pre>{ JSON.stringify(data, null, 2) }</pre> -->
-	</body>
+    {
+      data.map((row) => (
+        <>
+          <h2>{row.title}</h2>
+          <Speakers data={row.speakers} />
+          <Talks data={row.talks} />
+        </>
+      ))
+    }
+  </body>
 </html>

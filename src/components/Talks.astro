@@ -1,0 +1,17 @@
+---
+let { data } = Astro.props;
+
+if (data) {
+  data = Object.keys(data).map(key => data[key]);
+}
+---
+
+<section>
+  <h3>Talks</h3>
+
+  <ul>
+    { data && data.map((row) => (
+      <li>{ row.title }</li>
+    )) }
+  </ul>
+</section>
