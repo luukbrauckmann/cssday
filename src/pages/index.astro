@@ -1,5 +1,6 @@
 ---
-
+const response = await fetch('https://cssday.nl/data');
+const data = await response.json();
 ---
 
 <html lang="en">
@@ -11,6 +12,8 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<h1>CSS Day</h1>
+
+		<pre>{ JSON.stringify(data, null, 2) }</pre>
 	</body>
 </html>
