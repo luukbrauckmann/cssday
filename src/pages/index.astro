@@ -34,8 +34,6 @@ data = Object.keys(data).map((key) => data[key]);
           <h2>{row.title}</h2>
           <Speakers data={row.speakers} />
           <Talks data={row.talks} />
-
-          <pre>{ JSON.stringify(row, null, 2) }</pre>
         </section>
       ))
     }
