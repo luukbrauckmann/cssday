@@ -6,7 +6,7 @@ import "@assets/css/typography.css";
 
 const response = await fetch("https://cssday.nl/data");
 let data = await response.json();
-data = Object.keys(data).map((key) => data[key]);
+data = Object.keys(data).map((key) => ({ ...data[key], year: key }));
 ---
 
 <html lang="en">
@@ -33,9 +33,12 @@ data = Object.keys(data).map((key) => data[key]);
     <main class="main">
       {
         data.map((row) => (
-          <section class="test-section full" style={`--color: ${row.color.hex};`}>
-            <h2>{row.title}</h2>
-            <Speakers data={row.speakers} />
+          <section class="css-day full" style={`--color: ${row.color.hex};`}>
+            <header class="css-day__header">
+              <h2>{ row.year }</h2>
+              <p>{ row.title }</p>
+            </header>
+
             <Talks data={row.talks} />
             <Attendees data={row.attendees} />
 
@@ -88,16 +91,20 @@ data = Object.keys(data).map((key) => data[key]);
     padding: 2rem 1rem;
   }
 
-  .test-section {
+  .footer {
+    background-color: var(--c-foreground);
+    padding: 1.5rem 1rem;
+  }
+
+  .css-day {
     --border-color: color-mix(in srgb, var(--color) 50%, var(--c-background));
 
-    padding: 4rem 1rem;
+    padding-block: 4rem;
     border-left: 1rem solid var(--border-color);
     border-right: 1rem solid var(--border-color);
   }
 
-  .footer {
-    background-color: var(--c-foreground);
-    padding: 1.5rem 1rem;
+  .css-day__header {
+    margin-bottom: 2rem;
   }
 </style>

@@ -2,7 +2,7 @@
 const { data } = Astro.props;
 ---
 
-<section>
+<section class="attendees">
   <h3>Attendees</h3>
 
   <p>Total { data.count }</p>
@@ -17,6 +17,10 @@ const { data } = Astro.props;
 </section>
 
 <style>
+  .attendees {
+    padding-inline: 1rem;
+  }
+
   .countries-list {
     list-style: none;
     padding: 0;

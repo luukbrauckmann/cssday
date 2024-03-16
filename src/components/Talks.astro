@@ -2,12 +2,57 @@
 const { data } = Astro.props;
 ---
 
-<section>
+<section class="talks">
   <h3>Talks</h3>
 
-  <ul>
-    { data && data.map((row) => (
-      <li>{ row.title }</li>
-    )) }
+  <ul class="talks-list">
+    { data && data.map((row) => 
+      <li class="talks-list__item talk">
+        <img class="talk__speaker-img" src={row.speaker[0].avatar} alt={row.speaker[0].name} height="200" width="200" />
+        <h4 class="talk__title">{ row.title }</h4>
+        <p class="talk__speaker-name">By {row.speaker[0].name}</p>
+      </li>
+    ) }
   </ul>
 </section>
+
+<style>
+  .talks {
+    padding-inline: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .talks-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    margin-inline: -1rem;
+  }
+
+  .talks-list__item {
+    min-width: 200px;
+    scroll-snap-align: center;
+  }
+
+  .talks-list__item:first-child {
+    margin-inline-start: 1rem;
+  }
+
+  .talks-list__item:last-child {
+    margin-inline-end: 1rem;
+  }
+
+  .talk__speaker-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+
+  .talk__title {
+    font-size: var(--fs-title-5);
+  }
+</style>

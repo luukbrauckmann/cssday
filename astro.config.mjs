@@ -4,6 +4,6 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://cssday.pages.dev/',
+  site: 'https://cssday.luukbrauckmann.dev/',
   integrations: [sitemap()],
 });
