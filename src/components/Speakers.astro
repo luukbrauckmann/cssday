@@ -1,9 +1,5 @@
 ---
-let { data } = Astro.props;
-
-if (data) {
-  data = Object.keys(data).map(key => data[key]);
-}
+const { data } = Astro.props;
 ---
 
 <section>

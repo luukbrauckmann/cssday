@@ -1,5 +1,5 @@
 ---
-import { CopyLeft, Speakers, Talks } from "@components";
+import { Attendees, CopyLeft, Speakers, Talks } from "@components";
 import "@assets/css/layout.css";
 import "@assets/css/reset.css";
 import "@assets/css/typography.css";
@@ -37,6 +37,7 @@ data = Object.keys(data).map((key) => data[key]);
             <h2>{row.title}</h2>
             <Speakers data={row.speakers} />
             <Talks data={row.talks} />
+            <Attendees data={row.attendees} />
 
             <!-- <pre>{ JSON.stringify(row, null, 2) }</pre> -->
           </section>
@@ -84,18 +85,19 @@ data = Object.keys(data).map((key) => data[key]);
 
   .header {
     background-color: var(--c-foreground);
-    padding-block: 2rem;
+    padding: 2rem 1rem;
   }
 
   .test-section {
-    --background-color: color-mix(in srgb, var(--color) 20%, var(--c-background));
+    --border-color: color-mix(in srgb, var(--color) 50%, var(--c-background));
 
-    padding-block: 4rem;
-    background-color: var(--background-color);
+    padding: 4rem 1rem;
+    border-left: 1rem solid var(--border-color);
+    border-right: 1rem solid var(--border-color);
   }
 
   .footer {
     background-color: var(--c-foreground);
-    padding-block: 1.5rem;
+    padding: 1.5rem 1rem;
   }
 </style>

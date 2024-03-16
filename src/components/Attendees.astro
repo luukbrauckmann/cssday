@@ -1,0 +1,27 @@
+---
+const { data } = Astro.props;
+---
+
+<section>
+  <h3>Attendees</h3>
+
+  <p>Total { data.count }</p>
+
+  <ul class="countries-list">
+    { Object.keys(data.countries).map((key) => 
+      <li>
+        { key } { data.countries[key] }
+      </li>
+    ) }
+  </ul>
+</section>
+
+<style>
+  .countries-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    overflow: auto;
+  }
+</style>
