@@ -37,8 +37,6 @@ data = Object.keys(data).map((key) => ({ ...data[key], year: key }));
 
             <Talks data={row.talks} />
             <Attendees data={row.attendees} />
-
-            <!-- <pre>{ JSON.stringify(row, null, 2) }</pre> -->
           </section>
         ))
       }
@@ -47,7 +45,7 @@ data = Object.keys(data).map((key) => ({ ...data[key], year: key }));
     <footer class="footer">
       <div class="footer__content">
         <CopyLeft />
-         2024 Luuk Brauckmann. All rights reserved.
+         2024 Luuk Brauckmann. Some rights reserved.
       </div>
     </footer>
   </body>
