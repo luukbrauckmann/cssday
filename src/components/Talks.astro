@@ -8,7 +8,7 @@ const { data } = Astro.props;
   <ul class="talks-list">
     { data && data.map((row) => 
       <li class="talks-list__item talk">
-        <img class="talk__speaker-img" src={row.speaker[0].avatar} alt={row.speaker[0].name} height="200" width="200" />
+        <img class="talk__speaker-img" src={row.speaker[0].avatar} alt={row.speaker[0].name} height="200" width="200" loading="lazy" />
         <h4 class="talk__title">{ row.title }</h4>
         <p class="talk__speaker-name">By {row.speaker[0].name}</p>
       </li>
